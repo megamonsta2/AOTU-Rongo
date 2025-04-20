@@ -1,0 +1,9 @@
+[package]
+name = "megamonsta2/rongo"
+description = "Fork of MongoDB Atlas Data API wrapper for connecting Roblox to MongoDB. Used primarily for AoT: U, with a self hosted MongoDB instance and authorisation."
+version = "2.2.4"
+license = "MIT"
+realm = "server"
+registry = "https://github.com/UpliftGames/wally-index"
+exclude = ["**"]
+include = ["src", "src/**", "default.project.json", "wally.toml"]
