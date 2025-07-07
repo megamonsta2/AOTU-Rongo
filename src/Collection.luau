@@ -15,15 +15,15 @@ type Data = {
 --// Variables
 local ENDPOINTS = {
 	POST = {
-		["FindOne"] = "/rongo/findOne",
-		["FindMany"] = "/rongo/findMany",
-		["InsertOne"] = "/rongo/insertOne",
-		["InsertMany"] = "/rongo/insertMany",
-		["UpdateOne"] = "/rongo/updateOne",
-		["UpdateMany"] = "/rongo/updateMany",
-		["DeleteOne"] = "/rongo/deleteOne",
-		["DeleteMany"] = "/rongo/deleteMany",
-		["ReplaceOne"] = "/rongo/replaceOne",
+		["FindOne"] = "/rongo/find-one",
+		["FindMany"] = "/rongo/find-many",
+		["InsertOne"] = "/rongo/insert-one",
+		["InsertMany"] = "/rongo/insert-many",
+		["UpdateOne"] = "/rongo/update-one",
+		["UpdateMany"] = "/rongo/update-many",
+		["DeleteOne"] = "/rongo/delete-one",
+		["DeleteMany"] = "/rongo/delete-many",
+		["ReplaceOne"] = "/rongo/replace-one",
 		["Aggregate"] = "/rongo/aggregate",
 	},
 }
