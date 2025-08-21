@@ -27,7 +27,6 @@ local ENDPOINTS = {
 		["Aggregate"] = "/rongo/aggregate",
 	},
 }
-local DEFAULT_FILTER = { ["_id"] = { ["$exists"] = true } }
 
 --// Class Setup
 local Collection = {}
@@ -42,7 +41,7 @@ function Collection.FindOne(self: Collection, Filter: { [string]: any }?): { [st
 	local bodyData = {
 		database = self._database,
 		collection = self._collection,
-		filter = Filter or DEFAULT_FILTER,
+		filter = Filter,
 	}
 
 	-- Get response and return
@@ -68,7 +67,7 @@ function Collection.FindMany(
 	local bodyData = {
 		database = self._database,
 		collection = self._collection,
-		filter = Filter or DEFAULT_FILTER,
+		filter = Filter,
 		projection = Projection,
 		sort = Sort,
 		limit = Limit,
@@ -134,8 +133,8 @@ function Collection.UpdateOne(
 	local bodyData = {
 		["database"] = self._database,
 		["collection"] = self._collection,
-		["filter"] = Filter or DEFAULT_FILTER,
-		["update"] = Update or "{}",
+		["filter"] = Filter,
+		["update"] = Update,
 		["upsert"] = Upsert,
 	}
 
@@ -160,8 +159,8 @@ function Collection.UpdateMany(
 	local bodyData = {
 		["database"] = self._database,
 		["collection"] = self._collection,
-		["filter"] = Filter or DEFAULT_FILTER,
-		["update"] = Update or "{}",
+		["filter"] = Filter,
+		["update"] = Update,
 		["upsert"] = Upsert,
 	}
 
@@ -181,7 +180,7 @@ function Collection.DeleteOne(self: Collection, Filter: { [string]: any }?): num
 	local bodyData = {
 		["database"] = self._database,
 		["collection"] = self._collection,
-		["filter"] = Filter or DEFAULT_FILTER,
+		["filter"] = Filter,
 	}
 
 	-- Get response and return
@@ -200,7 +199,7 @@ function Collection.DeleteMany(self: Collection, Filter: { [string]: any }?): nu
 	local bodyData = {
 		["database"] = self._database,
 		["collection"] = self._collection,
-		["filter"] = Filter or DEFAULT_FILTER,
+		["filter"] = Filter,
 	}
 
 	-- Get response and return
@@ -224,7 +223,7 @@ function Collection.ReplaceOne(
 	local bodyData = {
 		["database"] = self._database,
 		["collection"] = self._collection,
-		["filter"] = Filter or DEFAULT_FILTER,
+		["filter"] = Filter,
 		["replacement"] = Replacement,
 		["upsert"] = Upsert,
 	}
