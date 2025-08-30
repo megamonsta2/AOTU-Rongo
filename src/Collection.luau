@@ -28,6 +28,13 @@ local ENDPOINTS = {
 	},
 }
 
+local function ParseArg(filter: { [any]: any }?): any?
+	if not filter or not next(filter) then
+		return nil
+	end
+	return filter
+end
+
 --// Class Setup
 local Collection = {}
 Collection.__index = Collection
@@ -41,7 +48,7 @@ function Collection.FindOne(self: Collection, Filter: { [string]: any }?): { [st
 	local bodyData = {
 		database = self._database,
 		collection = self._collection,
-		filter = Filter,
+		filter = ParseArg(Filter),
 	}
 
 	-- Get response and return
@@ -67,9 +74,9 @@ function Collection.FindMany(
 	local bodyData = {
 		database = self._database,
 		collection = self._collection,
-		filter = Filter,
-		projection = Projection,
-		sort = Sort,
+		filter = ParseArg(Filter),
+		projection = ParseArg(Projection),
+		sort = ParseArg(Sort),
 		limit = Limit,
 		skip = Skip,
 	}
@@ -133,8 +140,8 @@ function Collection.UpdateOne(
 	local bodyData = {
 		["database"] = self._database,
 		["collection"] = self._collection,
-		["filter"] = Filter,
-		["update"] = Update,
+		["filter"] = ParseArg(Filter),
+		["update"] = ParseArg(Update),
 		["upsert"] = Upsert,
 	}
 
@@ -159,8 +166,8 @@ function Collection.UpdateMany(
 	local bodyData = {
 		["database"] = self._database,
 		["collection"] = self._collection,
-		["filter"] = Filter,
-		["update"] = Update,
+		["filter"] = ParseArg(Filter),
+		["update"] = ParseArg(Update),
 		["upsert"] = Upsert,
 	}
 
@@ -180,7 +187,7 @@ function Collection.DeleteOne(self: Collection, Filter: { [string]: any }?): num
 	local bodyData = {
 		["database"] = self._database,
 		["collection"] = self._collection,
-		["filter"] = Filter,
+		["filter"] = ParseArg(Filter),
 	}
 
 	-- Get response and return
@@ -199,7 +206,7 @@ function Collection.DeleteMany(self: Collection, Filter: { [string]: any }?): nu
 	local bodyData = {
 		["database"] = self._database,
 		["collection"] = self._collection,
-		["filter"] = Filter,
+		["filter"] = ParseArg(Filter),
 	}
 
 	-- Get response and return
@@ -223,7 +230,7 @@ function Collection.ReplaceOne(
 	local bodyData = {
 		["database"] = self._database,
 		["collection"] = self._collection,
-		["filter"] = Filter,
+		["filter"] = ParseArg(Filter),
 		["replacement"] = Replacement,
 		["upsert"] = Upsert,
 	}
