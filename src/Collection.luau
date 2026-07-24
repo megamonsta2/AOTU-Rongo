@@ -7,7 +7,6 @@ local Client = require(script.Parent.Client)
 --// Types
 type Data = {
 	_client: Client.Client,
-	_cluster: string,
 	_database: string,
 	_collection: string,
 }

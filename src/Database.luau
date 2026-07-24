@@ -8,7 +8,6 @@ local CollectionModule = require(script.Parent.Collection)
 type Collection = CollectionModule.Collection
 type Data = {
 	_client: Client.Client,
-	_cluster: string,
 	_database: string,
 }
 
@@ -21,7 +20,6 @@ function Database.GetCollection(self: Database, CollectionName: string): Collect
 	-- Create collection and return
 	local Collection = setmetatable({}, CollectionModule) :: Collection
 	Collection._client = self._client
-	Collection._cluster = self._cluster
 	Collection._database = self._database
 	Collection._collection = CollectionName
 

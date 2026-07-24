@@ -2,10 +2,8 @@
 
 --// Modules
 local Client = require(script.Parent.Client)
-local ClusterModule = require(script.Parent.Cluster)
 
 --// Types
-type Cluster = ClusterModule.Cluster
 type Data = {
 	_client: Client.Client,
 }
@@ -31,15 +29,6 @@ end
 function Connection.SetAuth(self: Connection, Auth: Client.Auth)
 	-- Sets new auth
 	self._client.Auth = Auth
-end
-
-function Connection.GetCluster(self: Connection, ClusterName: string): Cluster
-	-- Creates cluster and returns
-	local Cluster = setmetatable({}, ClusterModule) :: Cluster
-	Cluster._client = self._client
-	Cluster._cluster = ClusterName
-
-	return Cluster
 end
 
 return Connection.new
