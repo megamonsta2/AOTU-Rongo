@@ -5,6 +5,7 @@ local Client = require(script.Parent.Client)
 local DatabaseModule = require(script.Parent.Database)
 
 --// Types
+type Database = DatabaseModule.Database
 type Data = {
 	_client: Client.Client,
 }
