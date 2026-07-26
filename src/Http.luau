@@ -18,7 +18,7 @@ function System.Request(Url: string, Auth: Client.Auth, Data: any): string? | an
 			Url = Url,
 			Method = "POST",
 			Headers = {
-				["apiKey"] = headers["apiKey"],
+				["x-api-key"] = headers["apikey"],
 				["email"] = headers["email"],
 				["password"] = headers["password"],
 				["Authorization"] = headers["Authorization"],
@@ -65,7 +65,7 @@ end
 function System.CreateHeaders(Auth: Client.Auth): { [string]: string }
 	-- If key, return apikey
 	if Auth.Type == "key" then
-		return { apiKey = Auth.Key }
+		return { apikey = Auth.Key }
 	elseif Auth.Type == "emailpassword" then -- If email & pass, return those
 		return { email = Auth.Email, password = Auth.Password }
 	elseif Auth.Type == "bearer" then -- If bearer, do funky things and return
