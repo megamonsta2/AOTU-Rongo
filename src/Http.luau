@@ -19,7 +19,6 @@ function System.Request(Url: string, Auth: Client.Auth, Data: any): string? | an
 			Method = "POST",
 			Headers = {
 				["x-api-key"] = headers["apikey"],
-				["apiKey"] = headers["apikey"],
 				["email"] = headers["email"],
 				["password"] = headers["password"],
 				["Authorization"] = headers["Authorization"],
